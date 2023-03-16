@@ -31,7 +31,7 @@ class PredictionInput(BaseModel):
 
 
 @app.post("/predict")
-async def predict(prediction_input: PredictionInput):
+def predict(prediction_input: PredictionInput):
     prediction = model.predict([[
         prediction_input.age,
         prediction_input.sex,
@@ -50,5 +50,5 @@ async def predict(prediction_input: PredictionInput):
 
 
 @app.get("/prediction_classes")
-async def prediction_classes():
+def  prediction_classes():
     return {"classes": list(model.classes_)}
